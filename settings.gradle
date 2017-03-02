@@ -1,2 +1,6 @@
 rootProject.name = "tsms"
+include "tsms-common"
+include "tsms-persistence"
+include "tsms-services"
+include "tsms-api"
 
