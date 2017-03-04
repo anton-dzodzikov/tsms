@@ -1,6 +1,6 @@
 package solutions.lightprocessing.tsms.common.cases
 
-class CaseStep {
+class Step {
     Long id
     Long caseId
     Long order
