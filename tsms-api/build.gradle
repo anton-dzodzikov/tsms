@@ -1,0 +1,8 @@
+apply plugin: "groovy"
+
+dependencies {
+    compile project(":tsms-services")
+    compile project(":tsms-common")
+
+    compile "org.codehaus.groovy:groovy-all:2.4.8"
+}
