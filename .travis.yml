@@ -1,0 +1,8 @@
+addons:
+  sonarqube:
+    token:
+      secure: SONAR_TOKEN
+    github_token:
+      secure: GITHUB_TOKEN
+script:
+  - sonar-scanner
