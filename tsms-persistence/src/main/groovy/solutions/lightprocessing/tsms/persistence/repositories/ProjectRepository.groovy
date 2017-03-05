@@ -6,5 +6,5 @@ import solutions.lightprocessing.tsms.common.project.Project
 
 @Repository
 interface ProjectRepository extends CrudRepository<Project, Long> {
-
+    Project findByName(String name)
 }
