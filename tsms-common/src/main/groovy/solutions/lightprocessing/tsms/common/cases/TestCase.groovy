@@ -7,18 +7,14 @@ import javax.persistence.ManyToOne
 import javax.persistence.Table
 
 @Entity
-@Table(name = "steps")
-class Step {
+@Table(name = "test_cases")
+class TestCase {
     @Id
     @GeneratedValue
     Long id
 
     @ManyToOne
-    TestCase testCase
+    Suite suite
 
-    Long order
-
-    String action
-
-    String expectedResult
+    String name
 }

@@ -19,7 +19,7 @@ create table suites (
     project_id  integer not null references projects(id)
 );
 
-create table cases (
+create table test_cases (
     id       integer primary key not null default nextval('id_seq'),
     name     varchar not null,
     suite_id integer not null references suites(id)
@@ -30,7 +30,7 @@ create table steps (
     "order"         integer not null,
     action          varchar not null,
     expected_result varchar not null,
-    case_id         integer not null references cases(id)
+    test_case_id         integer not null references test_cases(id)
 );
 
 create table suite_runs (
@@ -40,10 +40,10 @@ create table suite_runs (
     suite_id           integer not null references suites(id)
 );
 
-create table case_runs (
+create table test_case_runs (
     id           integer primary key not null default nextval('id_seq'),
     status       varchar not null,
-    case_id      integer not null references cases(id),
+    test_case_id      integer not null references test_cases(id),
     suite_run_id integer not null references suite_runs(id)
 );
 
@@ -52,5 +52,5 @@ create table step_runs (
     status        varchar not null,
     actual_result varchar not null,
     step_id       integer not null references steps(id),
-    case_run_id   integer not null references case_runs(id)
+    test_case_run_id   integer not null references test_case_runs(id)
 );

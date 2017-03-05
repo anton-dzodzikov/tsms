@@ -1,8 +1,8 @@
 package solutions.lightprocessing.tsms.common.runs
 
-class CaseRun {
+class TestCaseRun {
     Long id
     Long suiteRunId
-    Long caseId
+    Long testCaseId
     RunStatus status
 }
