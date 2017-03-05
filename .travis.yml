@@ -4,5 +4,8 @@ addons:
       secure: SONAR_TOKEN
     github_token:
       secure: GITHUB_TOKEN
+env:
+  jdk: oraclejdk8
+language: groovy
 script:
   - sonar-scanner
