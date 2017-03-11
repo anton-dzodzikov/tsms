@@ -6,7 +6,7 @@ import solutions.lightprocessing.tsms.common.cases.Suite
 
 @Repository
 interface SuiteRepository extends CrudRepository<Suite, Long> {
-    Suite findByName(String name)
+    List<Suite> findByName(String name)
 
-    Suite findByProjectId(Long id)
+    List<Suite> findByProjectId(Long id)
 }

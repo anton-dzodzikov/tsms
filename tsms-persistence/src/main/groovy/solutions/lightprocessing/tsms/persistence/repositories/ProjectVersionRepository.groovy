@@ -6,7 +6,7 @@ import solutions.lightprocessing.tsms.common.project.ProjectVersion
 
 @Repository
 interface ProjectVersionRepository extends CrudRepository<ProjectVersion, Long> {
-    ProjectVersion findByName(String name)
+    List<ProjectVersion> findByName(String name)
 
-    ProjectVersion findByProjectId(Long projectId)
+    List<ProjectVersion> findByProjectId(Long projectId)
 }

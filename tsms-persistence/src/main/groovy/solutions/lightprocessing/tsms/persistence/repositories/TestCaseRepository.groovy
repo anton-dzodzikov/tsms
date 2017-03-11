@@ -6,5 +6,7 @@ import solutions.lightprocessing.tsms.common.cases.TestCase
 
 @Repository
 interface TestCaseRepository extends CrudRepository<TestCase, Long> {
+    List<TestCase> findByName(String name)
 
+    List<TestCase> findBySuiteId(Long id)
 }
