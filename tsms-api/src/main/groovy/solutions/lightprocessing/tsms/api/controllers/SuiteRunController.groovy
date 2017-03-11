@@ -6,29 +6,35 @@ import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.ResponseBody
 import solutions.lightprocessing.tsms.api.response.SingleResponse
-import solutions.lightprocessing.tsms.persistence.repositories.*
+import solutions.lightprocessing.tsms.persistence.repositories.SuiteRunRepository
 
 @Controller
-@RequestMapping("api/project")
-class ProjectController {
+@RequestMapping("api/suiteRun")
+class SuiteRunController {
     @Autowired
-    ProjectRepository projectRepository
+    SuiteRunRepository suiteRunRepository
 
     @ResponseBody
     @RequestMapping(path = "all", produces = "application/json")
     SingleResponse getAll() {
-        [ projectRepository.findAll() ]
+        [ suiteRunRepository.findAll() ]
     }
 
     @ResponseBody
     @RequestMapping(path = "id/{id}", produces = "application/json")
     SingleResponse getById(@PathVariable String id) {
-        [ projectRepository.findOne(id as Long) ]
+        [ suiteRunRepository.findOne(id as Long) ]
     }
 
     @ResponseBody
-    @RequestMapping(path = "name/{name}", produces = "application/json")
-    SingleResponse getByName(@PathVariable String name) {
-        [ projectRepository.findByName(name) ]
+    @RequestMapping(path = "projectVersion/{id}", produces = "application/json")
+    SingleResponse getByProjectVersion(@PathVariable String id) {
+        [ suiteRunRepository.findByProjectVersionId(id as Long) ]
+    }
+
+    @ResponseBody
+    @RequestMapping(path = "suite/{id}", produces = "application/json")
+    SingleResponse getBySuite(@PathVariable String id) {
+        [ suiteRunRepository.findBySuiteId(id as Long) ]
     }
 }

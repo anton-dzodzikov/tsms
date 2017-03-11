@@ -6,5 +6,5 @@ import solutions.lightprocessing.tsms.common.cases.Step
 
 @Repository
 interface StepRepository extends CrudRepository<Step, Long> {
-    Step findByTestCaseId(Long id)
+    List<Step> findByTestCaseId(Long id)
 }

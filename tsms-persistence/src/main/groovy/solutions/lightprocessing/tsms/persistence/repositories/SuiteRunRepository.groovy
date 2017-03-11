@@ -6,4 +6,9 @@ import solutions.lightprocessing.tsms.common.runs.SuiteRun
 
 @Repository
 interface SuiteRunRepository extends CrudRepository<SuiteRun, Long> {
+    List<SuiteRun> findByProjectVersionId(Long id)
+
+    List<SuiteRun> findBySuiteId(Long id)
+
+    List<SuiteRun> findByStatus(String status)
 }
