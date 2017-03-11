@@ -1,7 +1,6 @@
 package solutions.lightprocessing.tsms.common.runs
 
-import solutions.lightprocessing.tsms.common.cases.Suite
-import solutions.lightprocessing.tsms.common.project.ProjectVersion
+import solutions.lightprocessing.tsms.common.cases.TestCase
 
 import javax.persistence.Entity
 import javax.persistence.EnumType
@@ -12,17 +11,17 @@ import javax.persistence.ManyToOne
 import javax.persistence.Table
 
 @Entity
-@Table(name = "suite_runs")
-class SuiteRun {
+@Table(name = "test_case_runs")
+class TestCaseRun {
     @Id
     @GeneratedValue
     Long id
 
     @ManyToOne
-    ProjectVersion projectVersion
+    SuiteRun suiteRun
 
     @ManyToOne
-    Suite suite
+    TestCase testCase
 
     @Enumerated(EnumType.STRING)
     RunStatus status

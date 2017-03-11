@@ -1,0 +1,9 @@
+apply plugin: "groovy"
+
+dependencies {
+    compile project(":tsms-services")
+    compile project(":tsms-common")
+
+    compile "org.codehaus.groovy:groovy-all:2.4.8"
+    compile "org.springframework.boot:spring-boot-starter-web:1.5.1.RELEASE"
+}
