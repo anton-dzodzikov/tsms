@@ -10,6 +10,6 @@ class ExceptionConfiguration {
     @ResponseBody
     @ExceptionHandler(Exception.class)
     ErrorResponse defaultErrorHandler(Exception e) {
-        [ e.getMessage() ]
+        [ "${e.getClass().getSimpleName()}: ${e.getMessage()}".toString() ]
     }
 }
