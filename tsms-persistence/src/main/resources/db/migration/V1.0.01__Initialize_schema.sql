@@ -30,7 +30,7 @@ create table steps (
     "order"         integer not null,
     action          varchar not null,
     expected_result varchar not null,
-    test_case_id         integer not null references test_cases(id)
+    test_case_id    integer not null references test_cases(id)
 );
 
 create table suite_runs (
@@ -43,14 +43,14 @@ create table suite_runs (
 create table test_case_runs (
     id           integer primary key not null default nextval('id_seq'),
     status       varchar not null,
-    test_case_id      integer not null references test_cases(id),
+    test_case_id integer not null references test_cases(id),
     suite_run_id integer not null references suite_runs(id)
 );
 
 create table step_runs (
-    id            integer primary key not null default nextval('id_seq'),
-    status        varchar not null,
-    actual_result varchar not null,
-    step_id       integer not null references steps(id),
-    test_case_run_id   integer not null references test_case_runs(id)
+    id               integer primary key not null default nextval('id_seq'),
+    status           varchar not null,
+    actual_result    varchar,
+    step_id          integer not null references steps(id),
+    test_case_run_id integer not null references test_case_runs(id)
 );
