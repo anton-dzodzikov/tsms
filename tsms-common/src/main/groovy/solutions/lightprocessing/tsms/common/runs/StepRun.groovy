@@ -26,6 +26,5 @@ class StepRun {
     @Enumerated(EnumType.STRING)
     RunStatus status
 
-
     String actualResult
 }
