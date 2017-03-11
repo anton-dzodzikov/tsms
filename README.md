@@ -1,5 +1,15 @@
 # Test Suite Management Service
 
+## Run project
+
+### Run with Gradle (wrapper)
+<pre>gradlew clean bootRun
+        -PdbUrl=DATABASE_URL
+        -PdbUsername=DATABASE_USER
+        -PdbPassword=DATABASE_PASSWORD</pre>
+
+## Migration
+
 ### Clean database schema
 <pre>gradlew clean :tsms-persistence:processResources flywayClean
         -Pflyway.url=DATABASE_URL

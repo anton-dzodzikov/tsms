@@ -13,3 +13,7 @@ dependencies {
     compile "org.codehaus.groovy:groovy-all:2.4.8"
     compile "org.springframework.boot:spring-boot-starter:1.5.1.RELEASE"
 }
+
+processResources {
+    expand(project.properties)
+}
