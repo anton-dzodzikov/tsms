@@ -8,13 +8,15 @@ import javax.persistence.Enumerated
 import javax.persistence.GeneratedValue
 import javax.persistence.Id
 import javax.persistence.ManyToOne
+import javax.persistence.SequenceGenerator
 import javax.persistence.Table
 
 @Entity
 @Table(name = "step_runs")
 class StepRun {
     @Id
-    @GeneratedValue
+    @GeneratedValue(generator = "id_gen")
+    @SequenceGenerator(name = "id_gen", sequenceName = "id_seq")
     Long id
 
     @ManyToOne
