@@ -21,5 +21,3 @@ dependencies {
 processResources {
     expand(project.properties)
 }
-
-test.jvmArgs System.getProperty("test.jvmArgs").split(" ")
