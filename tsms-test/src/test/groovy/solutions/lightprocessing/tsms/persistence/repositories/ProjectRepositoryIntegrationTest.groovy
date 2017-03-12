@@ -11,7 +11,7 @@ import org.springframework.test.context.support.DependencyInjectionTestExecution
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener
 import solutions.lightprocessing.tsms.application.Application
 
-import static org.assertj.core.api.Assertions.assertThat
+import static org.assertj.core.api.Assertions.*
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = Application.class)
