@@ -21,3 +21,9 @@
         -Pflyway.url=DATABASE_URL
         -Pflyway.user=DATABASE_USER
         -Pflyway.password=DATABASE_PASSWORD</pre>
+        
+## Test
+
+### Pass parameters to test
+Add this to VM options:
+<pre>-Dtest.jvmArgs="-DdbUsername=DATABASE_USER -DdbPassword=DATABASE_PASSWORD -DdbUrl=DATABASE_URL"</pre>
