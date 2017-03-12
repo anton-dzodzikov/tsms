@@ -27,17 +27,19 @@ class ProjectService {
     }
 
     Project updateProject(Project project) {
-        Project existingProject = projectRepository.findOne(project.id)
+        projectRepository.findOne(project.id).with {
+            if (it == null) {
+                throw new IllegalArgumentException("You can not update non-existing entity")
+            }
 
-        if (existingProject == null) {
-            throw new IllegalArgumentException("You can not update non-existing entity")
-        }
-
-        existingProject.with {
+            it
+        }.with {
             name = project.name
             description = project.description
-        }
 
-        projectRepository.save(existingProject)
+            it
+        }.with {
+            projectRepository.save(it)
+        }
     }
 }
