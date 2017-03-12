@@ -27,3 +27,13 @@
 ### Pass parameters to test
 Add this to VM options:
 <pre>-Dtest.jvmArgs="-DdbUsername=DATABASE_USER -DdbPassword=DATABASE_PASSWORD -DdbUrl=DATABASE_URL"</pre>
+
+## Project structure
+
+### Modules
+**tsms-common** - contains common classes such as domain entities
+**tsms-persistence** - persistence layer of application (DB connection, repositories, etc.)
+**tsms-services** - service layer of application (all business logic)
+**tsms-api** - API layer (controllers, request handling, etc.)
+**tsms-application** - application configuration (properties, packaging, etc.)
+**tsms-test** - all tests excluding unit-tests
