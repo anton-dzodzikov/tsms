@@ -2,7 +2,7 @@ create sequence id_seq;
 
 create table projects (
     id          integer primary key not null default nextval('id_seq'),
-    name        varchar not null,
+    name        varchar not null unique,
     description varchar
 );
 

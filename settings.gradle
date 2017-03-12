@@ -4,4 +4,5 @@ include "tsms-api"
 include "tsms-services"
 include "tsms-persistence"
 include "tsms-common"
+include "tsms-test"
 
