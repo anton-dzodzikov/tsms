@@ -28,12 +28,12 @@ class ProjectRepositoryIntegrationTest {
     ProjectRepository projectRepository
 
     @Test
-    void findAllGetsAllEntities() {
+    void findAllReturnsAllEntities() {
         assertThat(projectRepository.findAll()).hasSize(3)
     }
 
     @Test
-    void findOneGetsEntityWithGivenId() {
+    void findOneReturnsEntityWithGivenId() {
         Project result = projectRepository.findOne(1L)
 
         assertThat(result).isNotNull()
@@ -46,7 +46,7 @@ class ProjectRepositoryIntegrationTest {
     }
 
     @Test
-    void findByNameGetsEntityWithGivenName() {
+    void findByNameReturnsEntityWithGivenName() {
         Project result = projectRepository.findByName("Second project")
 
         assertThat(result).isNotNull()
