@@ -1,6 +1,7 @@
 package solutions.lightprocessing.tsms.persistence.repositories
 
 import com.github.springtestdbunit.DbUnitTestExecutionListener
+import com.github.springtestdbunit.annotation.DatabaseSetup
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.springframework.boot.test.context.SpringBootTest
@@ -19,6 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat
         TransactionalTestExecutionListener.class,
         DbUnitTestExecutionListener.class
 ])
+@DatabaseSetup("/db-unit/repository-test/project-repository-dataset.xml")
 class ProjectRepositoryIntegrationTest {
     @Test
     void test() {

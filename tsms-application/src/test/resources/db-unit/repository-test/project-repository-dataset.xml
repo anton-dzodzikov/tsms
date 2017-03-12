@@ -1,0 +1,14 @@
+<dataset>
+    <projects
+            id="1"
+            name="First project"
+            description="First project description"/>
+    <projects
+            id="2"
+            name="Second project"
+            description="Second project description"/>
+    <projects
+            id="3"
+            name="Third project"
+            description="Third project description"/>
+</dataset>
