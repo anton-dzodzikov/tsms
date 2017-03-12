@@ -4,12 +4,14 @@ import com.github.springtestdbunit.DbUnitTestExecutionListener
 import com.github.springtestdbunit.annotation.DatabaseSetup
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.TestExecutionListeners
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener
 import solutions.lightprocessing.tsms.application.Application
+import solutions.lightprocessing.tsms.common.project.Project
 
 import static org.assertj.core.api.Assertions.*
 
@@ -22,8 +24,37 @@ import static org.assertj.core.api.Assertions.*
 ])
 @DatabaseSetup("/db-unit/repository-test/project-repository-dataset.xml")
 class ProjectRepositoryIntegrationTest {
+    @Autowired
+    ProjectRepository projectRepository
+
     @Test
-    void test() {
-        assertThat(true).isEqualTo(true)
+    void findAllGetsAllEntities() {
+        assertThat(projectRepository.findAll()).hasSize(3)
+    }
+
+    @Test
+    void findOneGetsEntityWithGivenId() {
+        Project result = projectRepository.findOne(1L)
+
+        assertThat(result).isNotNull()
+        assertThat(result.name).isEqualTo("First project")
+    }
+
+    @Test
+    void findOneReturnsNullWhenEntityWithGivenIdDoesNotExist() {
+        assertThat(projectRepository.findOne(10L)).isNull()
+    }
+
+    @Test
+    void findByNameGetsEntityWithGivenName() {
+        Project result = projectRepository.findByName("Second project")
+
+        assertThat(result).isNotNull()
+        assertThat(result.description).isEqualTo("Second project description")
+    }
+
+    @Test
+    void findByNameReturnsNullWhenEntityWithGivenNameDoesNotExist() {
+        assertThat(projectRepository.findByName("Not existing project")).isNull()
     }
 }
