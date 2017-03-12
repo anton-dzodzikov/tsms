@@ -42,4 +42,8 @@ class ProjectService {
             projectRepository.save(it)
         }
     }
+
+    void deleteProject(Project project) {
+        projectRepository.delete(project)
+    }
 }
